@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href = "formStyle.css">
+</head>
+<body>
+
+    <section class ="form">
+    <h1>Δημιουργία Χρήστη</h1>
+    <div class="separator">
+        <hr>
+    </div> 
+    <h5><em>Η συμπλήρωση όλων των πεδίων είναι υποχρεωτική για την εγγραφή</em></h5>
+
+    <fieldset>
+    <legend>Στοιχεία Χρήστη</legend>
+    <div class = "formElement">
+        <label>Ονοματεπώνυμο: </label>
+        <input type="text" id="firstName" name="userFirstName" placeholder="Όνομα">
+        <input type="text" id="lastName" name="userLasttName" placeholder="Επώνυμο">
+    </div>
+    <div class = "formElement">
+        <label><br>Email: </label>
+        <input type="email" id="email" name="userEmail" placeholder="example@example.com">
+    </div>
+    <div class = "formElement">
+        <label><br>Τηλέφωνο: </label>
+        <input type = "number" id="phoneNumber" name="userPhoneNumber" placeholder="Σταθερό ή Κινητό" maxlength="10" minlength="10">
+        <br>
+    </div>
+    </fieldset>
+
+    <fieldset>
+        <legend><br>Στοιχεία Σύνδεσης</legend>
+        <div class = "formElement">
+            <label>Username:</label>
+            <input type = "text" id="username" name="username">
+        </div>
+        <div class = "formElement">
+            <label><br>Password:</label>
+            <input type ="password" id="password" name="userPassword" size="10">
+        </div>
+    </fieldset>
+
+    <div class = "formButton">
+        <br>
+        <input type="submit" value="Δημιουργία">
+    </div>
+    </section>
+    
+</body>
+</html>
