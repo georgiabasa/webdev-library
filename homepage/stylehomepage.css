@@ -1,0 +1,244 @@
+body {
+    background-color: #99631de0;
+}
+
+.info {
+    background-color: #351d0a;
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info div button {
+    margin-right: 10px;;
+    width: 60px;
+    padding: 4px;
+    background-color: #dba334;
+}
+
+.info ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.info ul li {
+    display: inline;
+    margin-left: 10px; /* Add margin between buttons */
+}
+
+.info ul li button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.info ul li button:hover {
+    background-color: #dba334;
+}
+
+.info a {
+    color: #dba334;
+    font-size: 20px;
+}
+
+li img {
+    width: 15px;
+    height: 15px;
+}
+
+#about {
+    width: 70%; /* Set the width of the container */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+#about p {
+    font-family: Arial, sans-serif; /* Choose a suitable font family */
+    font-size: 16px; /* Set the font size */
+    line-height: 1.6; /* Set the line height for readability */
+    color: rgb(40, 13, 3); /* Set the text color */
+    text-align: justify; /* Justify the text for a neat appearance */
+    margin-bottom: 20px; /* Add space between paragraphs */
+}
+
+#about p:first-child {
+    font-weight: bold; /* Make the first paragraph bold */
+}
+
+#about p:last-child {
+    margin-bottom: 0; /* Remove bottom margin for the last paragraph */
+}
+
+#communication,
+#location {
+    margin-bottom: 50px; /* Add space below each section */
+}
+
+#communication h2,
+#location h2 {
+    font-size: 24px; /* Set the font size for section headings */
+    color: rgb(40, 13, 3); /* Set the text color for section headings */
+    margin-bottom: 10px; /* Add space below section headings */
+}
+
+#communication p,
+#location ul {
+    font-size: 16px; /* Set the font size for paragraphs and list items */
+    color: rgb(40, 13, 3); /* Set the text color for paragraphs and list items */
+    line-height: 1.5; /* Set the line height for paragraphs and list items */
+}
+
+#communication ul,
+#location ul {
+    list-style-type: none; /* Remove bullet points from lists */
+    padding-left: 0; /* Remove default padding from lists */
+}
+
+#communication ul li,
+#location ul li {
+    margin-bottom: 10px; /* Add space between list items */
+}
+
+#communication ul li img,
+#communication ul li img {
+    margin-right: 10px; /* Add space to the right of the social media icons */
+    vertical-align: middle; /* Align social media icons vertically */
+}
+
+#communication ul li a {
+    color: #dba334; /* Set the text color for links */
+    text-decoration: none; /* Remove underline from links */
+}
+
+#location ul li {
+    color: #351d0a; /* Set the text color for links */
+    text-decoration: none;
+}
+
+#communication ul li a:hover,
+#location ul li a:hover {
+    text-decoration: underline; /* Underline links on hover */
+}
+
+.title {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Choose a suitable font stack */
+    font-size: 36px; /* Set the font size */
+    font-weight: bold; /* Make the font bold */
+    color: #351d0a; /* Choose a suitable text color */
+    text-align: left; /* Center align the text */
+    text-transform: uppercase; /* Convert text to uppercase */
+    letter-spacing: 1px; /* Add some letter spacing */
+    margin-top: 20px;;
+    margin-bottom: 20px; /* Add space below the title */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Add a subtle text shadow */
+    padding-bottom: 10px; /* Add some space below the bottom border */
+}
+
+.quote {
+    font-family: "Brush Script MT", cursive; /* Choose a calligraphic font */
+    font-style: italic;
+    font-size: 18px; /* Set the font size */
+    color: #2d2a1e; /* Choose a suitable text color */
+    text-align: left; /* Center align the text */
+    margin-bottom: 10px; /* Add space below the quote */
+    margin-top: 20px;
+    line-height: 1.5; /* Set the line height for readability */
+    border-bottom: 2px solid #dba334;
+}
+
+.search {
+	background-image: url('back2.jpg');
+	background-size: cover;
+	background-position: center;
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    height: 300px;
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    position: relative; 
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding: 0;
+}
+
+.search button:first-child {
+    background-color: rgb(40, 13, 3);
+    height:50px;
+    color:#dba334;
+    border: 2px solid #dba334; 
+    position: absolute; /* Position absolute for first button */
+    top: 10px; /* Position at the top */
+    left: 10px;
+}
+
+.search input {
+    text-align: center;
+    background-color: rgba(40, 13, 3, 0.856);
+    width: 1200px;
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    color:#dba334;
+    border: 0.3px solid #dba334; 
+}
+
+.search button:last-child {
+    background-color: #dba334;
+    height:20px;
+    border: 2px solid rgb(40, 13, 3);
+    position: absolute; /* Position absolute for last button */
+    top: 43%; /* Position at the center vertically */
+    right: 30px; /* Position to the right of the input */
+}
+
+.book {
+    position: relative;
+    display: inline-block; 
+    width: 80px; /* Set a fixed width for each book */
+    height: 120px; /* Set a fixed height for each book */
+    overflow: hidden; /* Hide overflowing content */
+    padding: 60px; /* Add padding to create space for elements */
+    vertical-align: top; /* Align books to the top */
+    white-space: normal;
+}
+
+.book img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    max-height: 100px;
+}
+
+.category,
+.title_author {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box; /* Include padding in element's width */
+}
+
+.category {
+    top: 10px; /* Adjust the top spacing for category */
+}
+
+.title_author {
+    bottom: 10px; /* Adjust the bottom spacing for title_author */
+}
+
+.category, .title_author {
+    color: rgb(40, 13, 3); /* Set the text color */
+    font-family: "Arial", sans-serif; /* Choose a suitable font family */
+    font-size: 15px; /* Set the font size */
+    letter-spacing: 0.5px; /* Add some letter spacing */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center text */
+}
+
+.books {
+    margin-top: 10px;;
+    white-space: nowrap;
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
