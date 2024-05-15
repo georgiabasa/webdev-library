@@ -4,7 +4,7 @@ body {
 
 .info {
     background-color: #351d0a;
-    padding: 10px 0;
+    padding: 0.625em 0; /* Adjusted padding */
     text-align: center;
     display: flex;
     align-items: center;
@@ -12,9 +12,9 @@ body {
 }
 
 .info div button {
-    margin-right: 10px;;
-    width: 60px;
-    padding: 4px;
+    margin-right: 0.625em; /* Adjusted margin */
+    width: 3.75em; /* Adjusted width */
+    padding: 0.25em; /* Adjusted padding */
     background-color: #dba334;
 }
 
@@ -27,12 +27,12 @@ body {
 
 .info ul li {
     display: inline;
-    margin-left: 10px; /* Add margin between buttons */
+    margin-left: 0.625em; /* Adjusted margin */
 }
 
 .info ul li button {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 0.625em 1.25em; /* Adjusted padding */
+    font-size: 1em; /* Adjusted font size */
 }
 
 .info ul li button:hover {
@@ -41,12 +41,12 @@ body {
 
 .info a {
     color: #dba334;
-    font-size: 20px;
+    font-size: 1.25em; /* Adjusted font size */
 }
 
 li img {
-    width: 15px;
-    height: 15px;
+    width: 0.9375em; /* Adjusted width */
+    height: 0.9375em; /* Adjusted height */
 }
 
 #about {
@@ -56,11 +56,11 @@ li img {
 
 #about p {
     font-family: Arial, sans-serif; /* Choose a suitable font family */
-    font-size: 16px; /* Set the font size */
+    font-size: 1em; /* Set the font size */
     line-height: 1.6; /* Set the line height for readability */
     color: rgb(40, 13, 3); /* Set the text color */
     text-align: justify; /* Justify the text for a neat appearance */
-    margin-bottom: 20px; /* Add space between paragraphs */
+    margin-bottom: 1.25em; /* Adjusted margin */
 }
 
 #about p:first-child {
@@ -73,19 +73,19 @@ li img {
 
 #communication,
 #location {
-    margin-bottom: 50px; /* Add space below each section */
+    margin-bottom: 3.125em; /* Adjusted margin */
 }
 
 #communication h2,
 #location h2 {
-    font-size: 24px; /* Set the font size for section headings */
+    font-size: 1.5em; /* Adjusted font size */
     color: rgb(40, 13, 3); /* Set the text color for section headings */
-    margin-bottom: 10px; /* Add space below section headings */
+    margin-bottom: 0.625em; /* Adjusted margin */
 }
 
 #communication p,
 #location ul {
-    font-size: 16px; /* Set the font size for paragraphs and list items */
+    font-size: 1em; /* Set the font size for paragraphs and list items */
     color: rgb(40, 13, 3); /* Set the text color for paragraphs and list items */
     line-height: 1.5; /* Set the line height for paragraphs and list items */
 }
@@ -98,12 +98,12 @@ li img {
 
 #communication ul li,
 #location ul li {
-    margin-bottom: 10px; /* Add space between list items */
+    margin-bottom: 0.625em; /* Adjusted margin */
 }
 
 #communication ul li img,
 #communication ul li img {
-    margin-right: 10px; /* Add space to the right of the social media icons */
+    margin-right: 0.625em; /* Adjusted margin */
     vertical-align: middle; /* Align social media icons vertically */
 }
 
@@ -124,90 +124,90 @@ li img {
 
 .title {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Choose a suitable font stack */
-    font-size: 36px; /* Set the font size */
+    font-size: 2.25em; /* Adjusted font size */
     font-weight: bold; /* Make the font bold */
     color: #351d0a; /* Choose a suitable text color */
     text-align: left; /* Center align the text */
     text-transform: uppercase; /* Convert text to uppercase */
-    letter-spacing: 1px; /* Add some letter spacing */
-    margin-top: 20px;;
-    margin-bottom: 20px; /* Add space below the title */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Add a subtle text shadow */
-    padding-bottom: 10px; /* Add some space below the bottom border */
+    letter-spacing: 0.03125em; /* Adjusted letter spacing */
+    margin-top: 1.25em; /* Adjusted margin */
+    margin-bottom: 1.25em; /* Adjusted margin */
+    text-shadow: 0.03125em 0.03125em 0.0625em rgba(0, 0, 0, 0.2); /* Add a subtle text shadow */
+    padding-bottom: 0.625em; /* Adjusted padding */
 }
 
 .quote {
     font-family: "Brush Script MT", cursive; /* Choose a calligraphic font */
     font-style: italic;
-    font-size: 18px; /* Set the font size */
+    font-size: 1.125em; /* Adjusted font size */
     color: #2d2a1e; /* Choose a suitable text color */
     text-align: left; /* Center align the text */
-    margin-bottom: 10px; /* Add space below the quote */
-    margin-top: 20px;
+    margin-bottom: 0.625em; /* Adjusted margin */
+    margin-top: 1.25em; /* Adjusted margin */
     line-height: 1.5; /* Set the line height for readability */
-    border-bottom: 2px solid #dba334;
+    border-bottom: 0.125em solid #dba334; /* Adjusted border */
 }
 
 .search {
-	background-image: url('back2.jpg');
-	background-size: cover;
-	background-position: center;
-    background-repeat: no-repeat; /* Prevent the background image from repeating */
-    height: 300px;
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
-    position: relative; 
-    margin-bottom: 0px;
-    margin-top: 0px;
+    background-image: url('back2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 20em; /* Adjusted height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 0;
+    margin-top: 0;
     padding: 0;
 }
 
 .search button:first-child {
     background-color: rgb(40, 13, 3);
-    height:50px;
-    color:#dba334;
-    border: 2px solid #dba334; 
-    position: absolute; /* Position absolute for first button */
-    top: 10px; /* Position at the top */
-    left: 10px;
+    height: 3.125em; /* Adjusted height */
+    color: #dba334;
+    border: 0.125em solid #dba334;
+    position: absolute;
+    top: 0.625em; /* Adjusted top */
+    left: 0.625em; /* Adjusted left */
 }
 
 .search input {
     text-align: center;
     background-color: rgba(40, 13, 3, 0.856);
-    width: 1200px;
-    height: 50px;
-    margin-top: 20px;
-    margin-bottom: 50px;
-    color:#dba334;
-    border: 0.3px solid #dba334; 
+    width: 75em; /* Adjusted width */
+    height: 3.125em; /* Adjusted height */
+    margin-top: 1.25em; /* Adjusted margin */
+    margin-bottom: 3.125em; /* Adjusted margin */
+    color: #dba334;
+    border: 0.2em solid #dba334;
 }
 
 .search button:last-child {
     background-color: #dba334;
-    height:20px;
-    border: 2px solid rgb(40, 13, 3);
-    position: absolute; /* Position absolute for last button */
-    top: 43%; /* Position at the center vertically */
-    right: 30px; /* Position to the right of the input */
+    height: 1.5em; /* Adjusted height */
+    border: 0.125em solid rgb(40, 13, 3);
+    position: absolute;
+    right: 10em; /* Adjusted right */
+    top: 10.5em;
 }
 
 .book {
     position: relative;
-    display: inline-block; 
-    width: 80px; /* Set a fixed width for each book */
-    height: 120px; /* Set a fixed height for each book */
-    overflow: hidden; /* Hide overflowing content */
-    padding: 60px; /* Add padding to create space for elements */
-    vertical-align: top; /* Align books to the top */
+    display: inline-block;
+    width: 5em; /* Adjusted width */
+    height: 7.5em; /* Adjusted height */
+    overflow: hidden;
+    padding: 3.75em; /* Adjusted padding */
+    vertical-align: top;
     white-space: normal;
 }
 
 .book img {
     width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    max-height: 100px;
+    height: auto;
+    max-height: 6.5em; /* Adjusted max height */
 }
 
 .category,
@@ -216,29 +216,30 @@ li img {
     left: 0;
     width: 100%;
     text-align: center;
-    box-sizing: border-box; /* Include padding in element's width */
+    box-sizing: border-box;
 }
 
 .category {
-    top: 10px; /* Adjust the top spacing for category */
+    top: 1.25em; /* Adjusted top */
 }
 
 .title_author {
-    bottom: 10px; /* Adjust the bottom spacing for title_author */
+    bottom: 1.25em; /* Adjusted bottom */
 }
 
-.category, .title_author {
-    color: rgb(40, 13, 3); /* Set the text color */
-    font-family: "Arial", sans-serif; /* Choose a suitable font family */
-    font-size: 15px; /* Set the font size */
-    letter-spacing: 0.5px; /* Add some letter spacing */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Center text */
+.category,
+.title_author {
+    color: rgb(40, 13, 3);
+    font-family: "Arial", sans-serif;
+    font-size: 0.9375em; /* Adjusted font size */
+    letter-spacing: 0.03125em; /* Adjusted letter spacing */
+    text-shadow: 0.03125em 0.03125em 0.0625em rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .books {
-    margin-top: 10px;;
+    margin-top: 0.625em; /* Adjusted margin */
     white-space: nowrap;
     overflow-x: auto;
-    margin-bottom: 30px;
+    margin-bottom: 1.875em; /* Adjusted margin */
 }
