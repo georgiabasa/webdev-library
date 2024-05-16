@@ -9,8 +9,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 import * as model from './model/model_lite.js'; ////// first attempt with sqlite3
-// import * as model from './model/model_pg.js'; ////// second attempt with postgresql
-////
 
 // Δημιουργία εξυπηρετητή Express
 const app = express();

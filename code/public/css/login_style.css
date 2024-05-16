@@ -8,7 +8,7 @@ body {
   justify-content: center;
   margin: 0;
   padding: 0;
-  background-image: url("Login_background.webp");
+  background-image: url("/images/back2.webp");
   background-color: #635147;
   background-size: cover;
   background-position: center;
@@ -144,7 +144,7 @@ button:hover:after {
   right: 10px;
 }
 
-.quiz-exit {
+.back {
   position: absolute;
   top: 0;
   left: 1rem;
@@ -158,7 +158,7 @@ button:hover:after {
   ;
 }
 
-.quiz-exit:hover {
+.back:hover {
   cursor: pointer;
   box-shadow: 0 0.4rem 1.4rem 0 #635147;
   ;
@@ -200,7 +200,7 @@ a {
     justify-content: center;
     align-items: center;
   }
-  .quiz-exit {
+  .back {
     position: absolute;
     left: 0;
     top: 0;

@@ -4,9 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="../assets/logos/finalLogo.webp" type="image/x-icon" />
   <link rel="stylesheet" href="/css/login_style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <title>LOGIN Greek Libraries</title>
 </head>
 
@@ -32,13 +30,13 @@
         </div>
       </div>
       <div class="button">
-          <button style="color: white" onclick="validate()"  id="submitButton" >submit</button>
+          <button style="color: white" onclick="validate()"  id="submitButton" >Login</button>
       </div>
     </form>
 
-  <div id="messageContainer">Thank you for submitting the form!</div> 
+  <div id="messageContainer">Welcome!</div> 
     <div class="redirect">
-      Νέος χρήστης? 
+      Νέος χρήστης ? 
       <button>
         <a href="signup" style="color: white">Sign-Up</a>
       </button>
@@ -46,12 +44,13 @@
     
   </div>
   
-  <div class="quiz-exit">
-    <a href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill: #635147;">
+  <div class="back">
+    <a href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill: #635147;">
         <path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path>
       </svg></a>
   </div>
 
+<!-- POSSIBLY TO BE DELETED!!!!!!!!!!!!!
 <script src="https://unpkg.com/@supabase/supabase-js"></script>
 <script type="text/javascript">
   const { createClient } = supabase
@@ -62,47 +61,51 @@
 
 
 </script>
-
+-->
 <script>
 
   const useremail = document.getElementById('email');
   const userpassword = document.getElementById('password');
- 
  
   function validate(){
     if(checkInputs())
     return true;
     else
     return false;
- 
-  }
+ }
  
   function checkInputs()
   {
-   console.log("called");
-   event.preventDefault();
+    console.log("called");
+    event.preventDefault();
        //get values from input fields
-        const emailval = useremail.value.trim();
-       const passwdval = userpassword.value.trim();
-       const error = document.getElementById('errormsg');
+      const emailval = useremail.value.trim();
+      const passwdval = userpassword.value.trim();
+      const error = document.getElementById('errormsg');
      
-       if(emailval === '')
+      if(emailval === '')
       {
         error.innerHTML="*Please enter your Email!";
-         useremail.parentElement.classList.add('error'); useremail.parentElement.classList.remove('success');
+        useremail.parentElement.classList.add('error'); 
+        useremail.parentElement.classList.remove('success');
+        return False;
       }
     
       else if(passwdval === '')
       {
-       useremail.parentElement.classList.add('success'); useremail.parentElement.classList.remove('error');
+        useremail.parentElement.classList.add('success'); 
+        useremail.parentElement.classList.remove('error');
         error.innerHTML="*Please enter your Password!";
-         userpassword.parentElement.classList.add('error'); userpassword.parentElement.classList.remove('success');
+        userpassword.parentElement.classList.add('error'); 
+        userpassword.parentElement.classList.remove('success');
+        return false;
       }
   
       else
       {
-         error.innerHTML="";
-         window.location.reload("login.js");
+        error.innerHTML="";
+        window.location.href = "/"; //redirect to home page MAYBE CHANGE
+        return true;
       }
   }
   
