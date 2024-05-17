@@ -22,11 +22,11 @@
         <div class="first-box">
           <div class="form-group">
             <i class="fa fa-address-book-o"></i>
-            <input type="text" name="" id="fullName" placeholder="Ονοματεπώνυμο" required aria-required="true" aria-label="Enter your full name"/>
+            <input type="text" name="firstName" id="firstName" placeholder="Όνομα" required aria-required="true" aria-label="Enter your first name"/>
           </div>
           <div class="form-group">
-            <i class="fa fa-envelope"></i>
-            <input type="email" name="" id="email" placeholder="Email" required aria-required="true" aria-label="Enter your email"/>
+            <i class="fa fa-user-o"></i>
+            <input type="text" name="lastName" id="lastName" placeholder="Επώνυμο" required aria-required="true" aria-label="Enter your last name"/>
           </div>
           <div class="form-group">
             <i class="fa fa-phone"></i>
@@ -36,10 +36,11 @@
         </div>
 
         <div class="second-box">
-          <div class="form-group">
-            <i class="fa fa-user-o"></i>
-            <input type="text" name="username" id="username" placeholder="Username" required aria-required="true" aria-label="Enter your username"/>
+            <div class="form-group">
+            <i class="fa fa-envelope"></i>
+            <input type="email" name="" id="email" placeholder="Email" required aria-required="true" aria-label="Enter your email"/>
           </div>
+
           <div class="form-group">
             <i class="fa fa-unlock-alt"></i>
             <input type="password" name="password" id="password" placeholder="Κωδικός" required aria-required="true" aria-label="Enter your password"/>
@@ -61,7 +62,7 @@
     <div class="redirect">
       Already have an account ? 
       <button>
-        <a href="/login" style="color: white">Login</a>
+        <a href="login" style="color: white">Login</a>
       </button>
     </div>
     

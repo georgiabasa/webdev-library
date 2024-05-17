@@ -4,11 +4,13 @@ import exphbs from "express-handlebars";
 import path from "path";
 import session from "express-session";
 
+
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-import * as model from './model/model_lite.js'; ////// first attempt with sqlite3
+import * as model from './model/better-sqlite/model_lite.js'; 
+import bookRoutes from './routes/library-routes.mjs';
 
 // Δημιουργία εξυπηρετητή Express
 const app = express();
@@ -116,17 +118,5 @@ app.get("/signup", (req, res) => {
   });
 
 
-// GET /books
-app.get("/communication", redirectHome, (req, res) => {
-  console.log("GET /communication session=", req.session);
-  const userID = req.session.userID;
-  const userName = req.session.userName;
-  model.findAllBooks((err, rows) => {
-    if (err) {
-      return console.error(err.message);
-    }
-    console.log("books to show...", rows)
-    res.render("communication");
-  });
-});
 
+app.use('/api', bookRoutes);
