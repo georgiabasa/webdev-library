@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 // Προσθήκη του express-session middleware
 app.use(session({
   name: process.env.SESS_NAME,
-  secret: process.env.SESSION_SECRET || "PynOjAuHetAuWawtinAytVunar", // κλειδί για κρυπτογράφηση του cookie
+  secret: process.env.SESSION_SECRET || "library", // κλειδί για κρυπτογράφηση του cookie
   resave: false, // δεν χρειάζεται να αποθηκεύεται αν δεν αλλάξει
   saveUninitialized: false, // όχι αποθήκευση αν δεν έχει αρχικοποιηθεί
   cookie: {
