@@ -72,7 +72,7 @@ const insertUser = (firstName, lastName, email, phone, callback) => {
     });
 }
 
-const registerUser = function(username, password, callback) {
+
     
     
 
