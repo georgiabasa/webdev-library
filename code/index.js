@@ -15,23 +15,7 @@ import bookRoutes from './routes/library-routes.mjs';
 // Δημιουργία εξυπηρετητή Express
 const app = express();
 
-// Διαμόρφωση του εξυπηρετητή
-app.engine('hbs', exphbs.engine({ extname: 'hbs', defaultLayout: 'main', layoutsDir: __dirname + '/views/layouts' }));
-app.set('view engine', 'hbs');
-app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({ extended: false }));
 
-// Προσθήκη του express-session middleware
-app.use(session({
-  name: process.env.SESS_NAME,
-  secret: process.env.SESSION_SECRET || "library", // κλειδί για κρυπτογράφηση του cookie
-  resave: false, // δεν χρειάζεται να αποθηκεύεται αν δεν αλλάξει
-  saveUninitialized: false, // όχι αποθήκευση αν δεν έχει αρχικοποιηθεί
-  cookie: {
-    maxAge: 2 * 60 * 60 * 1000, //TWO_HOURS χρόνος ζωής του cookie σε ms
-    sameSite: true
-  }
-}));
 
 const redirectHome = (req, res, next) => {
   console.log('redirect...', req.session)
@@ -42,12 +26,6 @@ const redirectHome = (req, res, next) => {
   }
 };
 
-console.log(process.env.PORT)
-// Εκκίνηση του εξυπηρετητή
-const PORT = process.env.PORT || 3003
-app.listen(PORT, () => {
-  console.log(`Συνδεθείτε στη σελίδα: http://localhost:${PORT}`);
-});
 
 // GET /
 app.get("/", (req, res) => {
@@ -87,35 +65,35 @@ app.post("/", (req, res) => {
   });
 });
 
-// GET /about
-app.get("/about", (req, res) => {
-  console.log("GET /about session=", req.session);
-  res.render("about");
-});
+//GET /about
+//app.get("/about", (req, res) => {
+//  console.log("GET /about session=", req.session);
+// res.render("about");
+//});
 
 // GET /locations
-app.get("/location", (req, res) => {
-    console.log("GET /location session=", req.session);
-    res.render("location");
-  });
+//app.get("/location", (req, res) => {
+ //   console.log("GET /location session=", req.session);
+  //  res.render("location");
+ // });
 
 // GET /communication
-app.get("/communication", (req, res) => {
-  console.log("GET /communication session=", req.session);
-  res.render("communication");
-});
+//app.get("/contact", (req, res) => {
+ // console.log("GET /contact session=", req.session);
+ // res.render("contact");
+//});
 
 // GET /login
-app.get("/login", (req, res) => {
-    console.log("GET /login session=", req.session);
-    res.render("login");
-  });
+//app.get("/login", (req, res) => {
+//    console.log("GET /login session=", req.session);
+  //  res.render("login");
+ // });
 
 // GET /signup
-app.get("/signup", (req, res) => {
-    console.log("GET /signup session=", req.session);
-    res.render("signup");
-  });
+//app.get("/signup", (req, res) => {
+//    console.log("GET /signup session=", req.session);
+ //   res.render("signup");
+ // });
 
 
 

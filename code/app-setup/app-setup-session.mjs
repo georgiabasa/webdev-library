@@ -1,7 +1,7 @@
 import session from 'express-session'
 
 let librarySession = session({
-    secret: 'library',
+    secret: 'librarytopsecret',
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false }

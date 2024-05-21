@@ -58,18 +58,7 @@ body {
 .no-border {
   border: none;
 }
-#male,
-#female {
-  font-size: 3rem;
-}
 
-#male+label,
-#female+label {
-  color: white;
-  display: flex;
-  font-size: 1.5rem;
-  align-items: center;
-}
 
 button {
   display: flex;
@@ -86,7 +75,9 @@ button {
   padding: 1rem;
   outline: none;
   border-radius: 4px;
+  text-align: center;
 }
+
 button:hover {
   color: #635147;
   font-weight: bold;
@@ -122,6 +113,13 @@ button{
   position: relative;
   transition: 0.5s;
   font-size: medium;
+}
+
+
+button:hover{
+  padding-right: 24px;
+  padding-left:8px;
+  background-color: black;
 }
 
 button:after {

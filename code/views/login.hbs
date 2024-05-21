@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,7 +12,7 @@
       Login
     </div>
     <p id="errormsg"></p>
-    <form class="login_form" id="form" aria-label="Login form">
+    <form class="login_form" action="/login" method="get" id="form" aria-label="Login form">
       <div class="first-box">
         <div class="form-group">
             <i class="fa fa-envelope"></i>
@@ -38,7 +35,7 @@
     <div class="redirect">
       Νέος χρήστης ? 
       <button>
-        <a href="signup" style="color: white">Sign-Up</a>
+        <a href="/signup" style="color: white">Sign-Up</a>
       </button>
     </div>
     
@@ -50,18 +47,6 @@
       </svg></a>
   </div>
 
-<!-- POSSIBLY TO BE DELETED!!!!!!!!!!!!!
-<script src="https://unpkg.com/@supabase/supabase-js"></script>
-<script type="text/javascript">
-  const { createClient } = supabase
-  const supabaseUrl = `https://cvhyilfsattdglfdmvcu.supabase.co`
-  const supabaseAnonKey = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2aHlpbGZzYXR0ZGdsZmRtdmN1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NDQ1NTE5MTksImV4cCI6MTk2MDEyNzkxOX0.wvKZxYcBbeUy9aJTw3XzbySmBJ8PkxVGXeopoucQpGY`
-
-  const _supabase = createClient(supabaseUrl, supabaseAnonKey)
-
-
-</script>
--->
 <script>
 
   const useremail = document.getElementById('email');
@@ -127,8 +112,4 @@
    
 });
  </script>
- 
-
 </body>
-
-</html>

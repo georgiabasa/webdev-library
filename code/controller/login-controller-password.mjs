@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 
-import * as userModel from '../model/better-sqlite/model_lite.mjs';
+//import * as userModel from '../model/better-sqlite/better-sqlite.mjs';   
+import * as userModel from '../model/sqlite-async/model_lite.mjs'
 
 export let showLogInForm = function (req, res) {
     res.render('login', {model: process.env.MODEL});
@@ -11,9 +12,6 @@ export let showSignUpForm = function (req, res) {
 }
 
 export let doLogin = async function (req, res) {
-    //Ελέγχει αν το username και το password είναι σωστά και εκτελεί την
-    //συνάρτηση επιστροφής authenticated
-
     const user = await userModel.getUserByEmail(req.body.email);
     if (user == undefined || !user.hashpass || !user.id) {
         res.render('login', { message: 'Δε βρέθηκε αυτός ο χρήστης' });
@@ -38,16 +36,10 @@ export let doLogin = async function (req, res) {
 export let doSignUp = async function (req, res) {
     try {
         const registrationResult = await userModel.insertUser(req.body.email, req.body.password, req.body.firstName, req.body.lastName, req.body.phone);
-        if (registrationResult.message) {
-            res.render('signup', { message: registrationResult.message })
-        }
-        else {
-            res.redirect('/login');
-        }
+        res.redirect('/login');
+
     } catch (error) {
-        console.error('registration error: ' + error);
-        //FIXME: δε θα έπρεπε να περνάμε το εσωτερικό σφάλμα στον χρήστη
-        //res.render('register-password', { message: error });
+        console.error('registration ' + error);
         res.render('signup', { message: 'Παρουσιάστηκε error κατά την εγγραφή.' });
     }
 }

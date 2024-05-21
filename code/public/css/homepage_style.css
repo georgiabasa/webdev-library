@@ -1,9 +1,33 @@
 body {
-    background-color: #99631de0;
+    /*background-color: #99631de0;*/
+    background-image: url("/images/back2.webp");
+    background-color: #635147;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: soft-light;
+}
+/* Customize the scrollbar */
+::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #351d0a; ; /* Color of the scrollbar thumb */
+    border-radius: 6px; /* Rounded corners */
+    border: 1px solid #f0f0f0; /* Padding around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #5f3411; ; /* Color on hover */
 }
 
 .info {
-    background-color: #351d0a;
+    /*background-color: #351d0a;*/
     padding: 10px 0;
     text-align: center;
     display: flex;
@@ -15,7 +39,8 @@ body {
     margin-right: 10px;;
     width: 60px;
     padding: 4px;
-    background-color: #dba334;
+    /*background-color: #dba334;*/
+    background-color: white;
 }
 
 .info ul {
@@ -36,11 +61,13 @@ body {
 }
 
 .info ul li button:hover {
-    background-color: #dba334;
+    /*background-color: #dba334;*/
+    background-color: white;
 }
 
 .info a {
-    color: #dba334;
+    color:white;
+    /*color: #dba334;*/
     font-size: 20px;
 }
 
@@ -58,7 +85,8 @@ li img {
     font-family: Arial, sans-serif; /* Choose a suitable font family */
     font-size: 16px; /* Set the font size */
     line-height: 1.6; /* Set the line height for readability */
-    color: rgb(40, 13, 3); /* Set the text color */
+    /*color: rgb(40, 13, 3); /* Set the text color */
+    color: white;
     text-align: justify; /* Justify the text for a neat appearance */
     margin-bottom: 20px; /* Add space between paragraphs */
 }
@@ -79,14 +107,16 @@ li img {
 #communication h2,
 #location h2 {
     font-size: 24px; /* Set the font size for section headings */
-    color: rgb(40, 13, 3); /* Set the text color for section headings */
+    /*color: rgb(40, 13, 3); /* Set the text color for section headings */
+    color:white;
     margin-bottom: 10px; /* Add space below section headings */
 }
 
 #communication p,
 #location ul {
     font-size: 16px; /* Set the font size for paragraphs and list items */
-    color: rgb(40, 13, 3); /* Set the text color for paragraphs and list items */
+    /*color: rgb(40, 13, 3); /* Set the text color for paragraphs and list items */
+    color: white;
     line-height: 1.5; /* Set the line height for paragraphs and list items */
 }
 
@@ -108,12 +138,14 @@ li img {
 }
 
 #communication ul li a {
-    color: #dba334; /* Set the text color for links */
+    /*color: #dba334; /* Set the text color for links */
+    color: white;
     text-decoration: none; /* Remove underline from links */
 }
 
 #location ul li {
-    color: #351d0a; /* Set the text color for links */
+    /*color: #351d0a; /* Set the text color for links */
+    color: white;
     text-decoration: none;
 }
 
@@ -126,7 +158,8 @@ li img {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Choose a suitable font stack */
     font-size: 36px; /* Set the font size */
     font-weight: bold; /* Make the font bold */
-    color: #351d0a; /* Choose a suitable text color */
+    /*color: #351d0a; /* Choose a suitable text color */
+    color:white;
     text-align: left; /* Center align the text */
     text-transform: uppercase; /* Convert text to uppercase */
     letter-spacing: 1px; /* Add some letter spacing */
@@ -140,7 +173,8 @@ li img {
     font-family: "Brush Script MT", cursive; /* Choose a calligraphic font */
     font-style: italic;
     font-size: 18px; /* Set the font size */
-    color: #2d2a1e; /* Choose a suitable text color */
+    /*color: #2d2a1e; /* Choose a suitable text color */
+    color:white;
     text-align: left; /* Center align the text */
     margin-bottom: 10px; /* Add space below the quote */
     margin-top: 20px;
@@ -228,7 +262,8 @@ li img {
 }
 
 .category, .title_author {
-    color: rgb(40, 13, 3); /* Set the text color */
+    color: white;
+    /*color: rgb(40, 13, 3); /* Set the text color */
     font-family: "Arial", sans-serif; /* Choose a suitable font family */
     font-size: 15px; /* Set the font size */
     letter-spacing: 0.5px; /* Add some letter spacing */

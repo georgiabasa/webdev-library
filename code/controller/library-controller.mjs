@@ -1,7 +1,5 @@
-//import dotenv from 'dotenv';
-//const express = re
-//const model = await import (`code/model/${process.env.MODEL}/model_lite-${process.env.MODEL}.mjs`);
-const model = await import ('code/model/better-sqlite/model_lite.js')
+//import * as model from '../model/better-sqlite/better-sqlite.mjs';
+import * as model from '../model/sqlite-async/model_lite.mjs'
 
 export async function listShowBook(req, res, next) {
     const { ISBN } = req.params;
@@ -23,4 +21,16 @@ export async function listFindBooks(req, res, next) {
     } catch (err) {
         throw err;
     }
+}
+
+export async function showInfo(req, res) {
+    res.render('about', { model: process.env.MODEL, session: req.session });
+}
+
+export async function showContact(req, res) {
+    res.render('contact', { model: process.env.MODEL, session: req.session });
+}
+
+export async function showLocations(req, res) {
+    res.render('location', { model: process.env.MODEL, session: req.session });
 }
