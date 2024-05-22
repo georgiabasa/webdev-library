@@ -1,16 +1,16 @@
 {{!-- searchresult.hbs --}}
 
 <h3>Search Results</h3>
-{{#if books.length}}
-    <p>Number of books found: {{books.length}}</p>
+{{#if searchresult.length}}
+    <p>Number of books found: {{searchresult.length}}</p>
     <ul>
-        {{#each books}}
+        {{#each searchresult}}
             <li>
-                <a href="/book/{{this.id}}">{{this.title}}</a>
-                <p>Author: {{this.author}}</p>
-                <p>Category: {{this.category}}</p>
+                <a href="/book/{{this.ISBN}}">{{this.title}}</a>
+                <p>Author: {{this.firstName}}</p>
+                <p>Category: {{this.name}}</p>
                 <div>
-                    <img src="{{this.image}}" alt="{{this.title}}" style="width: 100px; height: 150px;">
+                    <img src="/images/covers/{{this.image_id}}.jpg" alt="{{this.title}}" style="width: 100px; height: 150px;">
                 </div>
             </li>
         {{/each}}

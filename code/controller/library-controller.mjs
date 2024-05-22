@@ -5,15 +5,17 @@ export async function listShowBook(req, res, next) {
     const { ISBN } = req.params;
 
     try {
-        const book = await model.showBook(ISBN);
-        res.render('book', { book: book , model: process.env.MODEL, session: req.session });
+        const bookres = await model.showBook('12');
+
+        res.render('book', { book: bookres, model: process.env.MODEL, session: req.session });
     } catch (err) {
         throw err;
     }
 }
 
 export async function listFindBooks(req, res, next) {
-    const searchInput = `%${req.query.q}%`;
+    const searchInput =  req.query.searchInput;
+    console.log(searchInput);
 
     try {
         const allbooks = await model.findBooks(searchInput);

@@ -9,11 +9,6 @@ router.get('/', (req, res)=>{
     res.render('index');
 
 })
-//Ανακατεύθυνση του χρήστη στην αρχική σελίδα
-//router.route('/').get((req, res, next) =>
- //   res.redirect('/index')
-//);
-
 
 //search results and single book show page
 router.get('/book', libraryController.listShowBook);

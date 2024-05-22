@@ -1,11 +1,11 @@
 <div class="quote">
         <p>"Ένα βιβλίο είναι ένα όχημα που μας μεταφέρει σε άλλους κόσμους και διασχίζει το χρόνο, χωρίς ποτέ να μας αφήνει στη μοναξιά." - Emily Dickinson</p>
     </div>
-    <nav class="search">
+    <form class="search" action="/searchresult" method="get" aria-label="search" >
         <button>Audio Books</button>
-        <input type="text" id="searchInput" placeholder="Ψάξε για βιβλίο..." style="font-weight: bold">
-        <button>Αναζήτηση</button>
-    </nav>
+        <input type="text" id="searchInput" name="searchInput" placeholder="Ψάξε για βιβλίο..." style="font-weight: bold">
+        <button type="submit">Αναζήτηση</button>
+    </form>
     <nav class="books">
         <div class="book">
             <div class="category">ΑΥΤΟΒΕΛΤΙΩΣΗΣ</div>
@@ -43,9 +43,11 @@
             <div class="title_author">ΤΟ ΥΠΟΓΕΙΟ<br>ΦΙΟΝΤΟΡ ΝΤΟΣΤΟΓΙΕΦΣΚΙ</div>
         </div>
         <div class="book">
+            <a href="/book">
             <div class="category">ΜΥΣΤΗΡΙΟΥ</div>
             <img src="images/mistiriou.png" alt="Book 1">
             <div class="title_author">ΜΑΧΑΙΡΙ<br>JO NESBO</div>
+            </a>
         </div>
         <div class="book">
             <div class="category">ΠΑΙΔΙΚΗ ΛΟΓΟΤΕΧΝΙΑ</div>

@@ -59,8 +59,8 @@ export let findUser = async (email, password) => {
 
 export let findBooks = async (searchInput) => {
     // ανάκτηση των βιβλίων αναλογα την αναζητηση
-    const sql = `
-    SELECT DISTINCT BOOK.ISBN, CATEGORY.name, BOOK.image_id, BOOK.title, AUTHOR.firstName, AUTHOR.lastName 
+    const command = `
+    SELECT DISTINCT BOOK.image_id, BOOK.ISBN, CATEGORY.name, BOOK.image_id, BOOK.title, AUTHOR.firstName, AUTHOR.lastName 
     FROM BOOK
     LEFT JOIN WRITES ON BOOK.ISBN = WRITES.ISBN_book
     LEFT JOIN AUTHOR ON WRITES.id_author = AUTHOR.id
@@ -68,13 +68,13 @@ export let findBooks = async (searchInput) => {
     LEFT JOIN KEYWORD ON INCLUDES.id_keyword = KEYWORD.id
     LEFT JOIN BELONGS_TO ON BOOK.ISBN = BELONGS_TO.ISBN_book
     LEFT JOIN CATEGORY ON BELONGS_TO.id_category = CATEGORY.id
-    WHERE BOOK.title LIKE ? 
-    OR AUTHOR.lastName LIKE ? 
-    OR CATEGORY.name LIKE ? 
-    OR KEYWORD.word LIKE ?
+    WHERE BOOK.title LIKE '%' || ? || '%' 
+    OR AUTHOR.lastName LIKE '%' || ? || '%'  
+    OR CATEGORY.name LIKE '%' || ? || '%'  
+    OR KEYWORD.word LIKE '%' || ? || '%' 
     ORDER BY BOOK.title;
 `;
-    const stmt = await sql.prepare(sql);
+    const stmt = await sql.prepare(command);
     try {
         const books = await stmt.all(searchInput, searchInput, searchInput, searchInput);
         return books;
@@ -84,16 +84,16 @@ export let findBooks = async (searchInput) => {
 }
 
 export let showBook = async (ISBN) => {
-    // ανάκτηση όλων των βιβλίων της βάσης δεδομένων
-    const sql = `SELECT BOOK.title, AUTHOR.firstName, AUTHOR.lastName, CATEGORY.name, BOOK.ISBN, BOOK.date_published, BOOK.edition, BOOK.num_pages, BOOK.publisher, BOOK.summary, BOOK.image_id 
+    // ανάκτηση ενός βιβλίου από το ISBN
+    const command = `SELECT BOOK.title AS title, AUTHOR.firstName AS firtName, AUTHOR.lastName AS lastName, CATEGORY.name AS category, BOOK.ISBN AS ISBN, BOOK.date_published AS date_published, BOOK.edition AS edition, BOOK.num_pages AS num_pages, BOOK.publisher AS publisher, BOOK.summary AS summary, BOOK.image_id AS image_id
     FROM BOOK , WRITES, AUTHOR, CATEGORY, BELONGS_TO
     WHERE BOOK.ISBN = WRITES.ISBN_book AND WRITES.id_author = AUTHOR.id
     AND BOOK.ISBN = BELONGS_TO.ISBN_book AND BELONGS_TO.id_category = CATEGORY.id
     AND ISBN = ?`;
-    const stmt = await sql.prepare(sql);
+    const stmt = await sql.prepare(command);
     try {
         const book = await stmt.all(ISBN);
-        return book;
+        return book[0];
     } catch (err) {
         throw err;
     }

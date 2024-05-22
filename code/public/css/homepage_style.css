@@ -6,6 +6,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     background-blend-mode: soft-light;
+    color:white;
 }
 /* Customize the scrollbar */
 ::-webkit-scrollbar {
@@ -25,6 +26,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background-color: #5f3411; ; /* Color on hover */
 }
+
 
 .info {
     /*background-color: #351d0a;*/
@@ -99,6 +101,10 @@ li img {
     margin-bottom: 0; /* Remove bottom margin for the last paragraph */
 }
 
+#about h2{
+    color:white;
+}
+
 #communication,
 #location {
     margin-bottom: 50px; /* Add space below each section */
@@ -129,6 +135,7 @@ li img {
 #communication ul li,
 #location ul li {
     margin-bottom: 10px; /* Add space between list items */
+    color:white;
 }
 
 #communication ul li img,
@@ -197,6 +204,25 @@ li img {
     padding: 0;
 }
 
+.search a:first-child {
+    background-color: rgb(40, 13, 3);
+    height:50px;
+    color:#dba334;
+    border: 2px solid #dba334; 
+    position: absolute; /* Position absolute for first button */
+    top: 10px; /* Position at the top */
+    left: 10px;
+}
+.search a:last-child {
+    background-color: #dba334;
+    height:20px;
+    color: black;
+    border: 2px solid rgb(40, 13, 3);
+    position: absolute; /* Position absolute for last button */
+    top: 43%; /* Position at the center vertically */
+    right: 30px; /* Position to the right of the input */
+}
+
 .search button:first-child {
     background-color: rgb(40, 13, 3);
     height:50px;
@@ -206,6 +232,15 @@ li img {
     top: 10px; /* Position at the top */
     left: 10px;
 }
+.search button:last-child {
+    background-color: #dba334;
+    height:20px;
+    border: 2px solid rgb(40, 13, 3);
+    position: absolute; /* Position absolute for last button */
+    top: 43%; /* Position at the center vertically */
+    right: 30px; /* Position to the right of the input */
+}
+
 
 .search input {
     text-align: center;
@@ -218,14 +253,6 @@ li img {
     border: 0.3px solid #dba334; 
 }
 
-.search button:last-child {
-    background-color: #dba334;
-    height:20px;
-    border: 2px solid rgb(40, 13, 3);
-    position: absolute; /* Position absolute for last button */
-    top: 43%; /* Position at the center vertically */
-    right: 30px; /* Position to the right of the input */
-}
 
 .book {
     position: relative;

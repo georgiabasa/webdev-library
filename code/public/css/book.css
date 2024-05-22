@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background-image: url("/images/back2.webp");
+  background-color: #635147;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-blend-mode: soft-light;
+  font-family: 'Josefin Sans', sans-serif;
+  color: white;
+}
+
+.bookresult {
+  display: flex;
+  gap: 20px;
+  padding: 1.2rem;
+  background-color: rgba(0, 0, 0, 0.5); /* Optional: to improve readability against background */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px 0; /* Add space above and below */
+}
+
+#cover {
+  border-radius: 5px;
+  margin-right: 20px; /* Add space between image and the rest of the elements */
+}
+
+.bookinfo {
+  display: flex;
+  flex-direction: row; /* Ensure the info is laid out in a row */
+  align-items: flex-start; /* Align items at the start of the flex container */
+}
+
+.title-info {
+  display: flex;
+  flex-direction: column; /* Ensure the title and other info are stacked vertically */
+  flex-grow: 1; /* Allow the title and other info to take up remaining space */
+}
+
+#booktitle {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+#author {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.bookinfo p {
+  font-size: 14px;
+  margin: 5px 0;
+}
