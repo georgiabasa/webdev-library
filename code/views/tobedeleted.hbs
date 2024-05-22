@@ -1,0 +1,29 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/book.css" />
+  <title>BOOK</title>
+</head>
+
+
+<body>
+  <div class="bookresult">
+    <div class="bookinfo">
+      <div> 
+          <img id="cover" src="images/{{book.image_id}}.jpg" style="width: 200px; height: 300px;">
+      </div>
+      <div class="title-info">
+        <h2 id="booktitle">{{book.title}}</h2>
+        <p id="author"><strong>Author:</strong> {{book.firstName}} {{book.lastName}}</p>
+        <p id="category"><strong>Category:</strong> {{book.category}}</p>
+        <p id="isbn"><strong>ISBN:</strong> {{book.ISBN}}</p>
+        <p id="datepub"><strong>Published:</strong> {{book.date_published}}</p>
+        <p id="publisher"><strong>Publisher:</strong> {{book.publisher}}</p>
+        <p id="ed"><strong>Edition:</strong> {{book.edition}}</p>
+        <p id="nump"><strong>Pages:</strong> {{book.num_pages}}</p>
+        <p id="summ"><strong>Summary:</strong> {{book.summary}}</p>
+
+      </div>
+    </div>
+  </div>
+</body>

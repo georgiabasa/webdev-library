@@ -13,14 +13,17 @@ export let showSignUpForm = function (req, res) {
 
 export let doLogin = async function (req, res) {
     const user = await userModel.getUserByEmail(req.body.email);
+    console.log(user);
     if (user == undefined || !user.hashpass || !user.id) {
         res.render('login', { message: 'Δε βρέθηκε αυτός ο χρήστης' });
     }
     else {
         const match = await bcrypt.compare(req.body.password, user.hashpass);
+        console.log(match)
         if (match) {
             //Θέτουμε τη μεταβλητή συνεδρίας "loggedUserId"
             req.session.loggedUserId = user.id;
+            console.log("user is authenticated", req.session.loggedUserId);
             //Αν έχει τιμή η μεταβλητή req.session.originalUrl, αλλιώς όρισέ τη σε "/" 
             // res.redirect("/");            
             const redirectTo = req.session.originalUrl || "/";

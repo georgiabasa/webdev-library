@@ -13,13 +13,14 @@ import exphbs from "express-handlebars";
 app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static('public'));
+app.use('/images', express.static('images'));
 
 app.use((req, res, next) => {
     if(req.session){
         res.locals.session = req.session.loggedUserId;
     }
     else{
-        res.locals.loggedUserId = null; 
+        res.locals.loggedUserId = 'επισκέπτης'; 
         //αλλιώς res.locals.userId = 'επισκέπτης';
     }
     next();

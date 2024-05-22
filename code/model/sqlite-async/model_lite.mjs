@@ -17,10 +17,10 @@ catch (error){
 
 //Επιστρέφει τον χρήστη με email
 export let getUserByEmail = async (email) => {
-    const stmt = await sql.prepare("SELECT id, email, hashpass FROM USER WHERE email = ? LIMIT 0, 1");
+    const stmt = await sql.prepare("SELECT id, email, hashpass FROM USER WHERE email = '?' LIMIT 0, 1");
     try {
         const user = await stmt.all(email);
-        return user[0];
+        return user;
     } catch (err) {
         throw err;
     }
@@ -60,7 +60,7 @@ export let findUser = async (email, password) => {
 export let findBooks = async (searchInput) => {
     // ανάκτηση των βιβλίων αναλογα την αναζητηση
     const command = `
-    SELECT DISTINCT BOOK.image_id, BOOK.ISBN, CATEGORY.name, BOOK.image_id, BOOK.title, AUTHOR.firstName, AUTHOR.lastName 
+    SELECT DISTINCT BOOK.ISBN, CATEGORY.name, BOOK.image_id, BOOK.title, AUTHOR.firstName, AUTHOR.lastName 
     FROM BOOK
     LEFT JOIN WRITES ON BOOK.ISBN = WRITES.ISBN_book
     LEFT JOIN AUTHOR ON WRITES.id_author = AUTHOR.id
@@ -85,7 +85,7 @@ export let findBooks = async (searchInput) => {
 
 export let showBook = async (ISBN) => {
     // ανάκτηση ενός βιβλίου από το ISBN
-    const command = `SELECT BOOK.title AS title, AUTHOR.firstName AS firtName, AUTHOR.lastName AS lastName, CATEGORY.name AS category, BOOK.ISBN AS ISBN, BOOK.date_published AS date_published, BOOK.edition AS edition, BOOK.num_pages AS num_pages, BOOK.publisher AS publisher, BOOK.summary AS summary, BOOK.image_id AS image_id
+    const command = `SELECT BOOK.image_id, BOOK.title, AUTHOR.firstName, AUTHOR.lastName, CATEGORY.name AS category, BOOK.ISBN, BOOK.date_published, BOOK.edition, BOOK.num_pages, BOOK.publisher, BOOK.summary
     FROM BOOK , WRITES, AUTHOR, CATEGORY, BELONGS_TO
     WHERE BOOK.ISBN = WRITES.ISBN_book AND WRITES.id_author = AUTHOR.id
     AND BOOK.ISBN = BELONGS_TO.ISBN_book AND BELONGS_TO.id_category = CATEGORY.id

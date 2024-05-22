@@ -13,6 +13,8 @@ router.get('/', (req, res)=>{
 //search results and single book show page
 router.get('/book', libraryController.listShowBook);
 router.get('/searchresult', libraryController.listFindBooks);
+router.get('/book/:ISBN', libraryController.listShowBook);
+
 
 //info page
 router.get('/about', libraryController.showInfo);

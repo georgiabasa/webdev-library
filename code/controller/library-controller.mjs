@@ -5,7 +5,8 @@ export async function listShowBook(req, res, next) {
     const { ISBN } = req.params;
 
     try {
-        const bookres = await model.showBook('12');
+        const bookres = await model.showBook(ISBN);
+        console.log(bookres.image_id);  
 
         res.render('book', { book: bookres, model: process.env.MODEL, session: req.session });
     } catch (err) {
