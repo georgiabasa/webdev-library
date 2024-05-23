@@ -8,7 +8,12 @@ export async function listShowBook(req, res, next) {
         const bookres = await model.showBook(ISBN);
         console.log(bookres.image_id);  
 
-        res.render('book', { book: bookres, model: process.env.MODEL, session: req.session });
+        res.render('book', {
+            book: bookres.book,
+            copies: bookres.copies,
+            model: process.env.MODEL,
+            session: req.session
+        });
     } catch (err) {
         throw err;
     }

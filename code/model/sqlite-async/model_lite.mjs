@@ -85,16 +85,39 @@ export let findBooks = async (searchInput) => {
 
 export let showBook = async (ISBN) => {
     // ανάκτηση ενός βιβλίου από το ISBN
-    const command = `SELECT BOOK.image_id, BOOK.title, AUTHOR.firstName, AUTHOR.lastName, CATEGORY.name AS category, BOOK.ISBN, BOOK.date_published, BOOK.edition, BOOK.num_pages, BOOK.publisher, BOOK.summary
+    const command1 = `SELECT BOOK.image_id, BOOK.title, AUTHOR.firstName, AUTHOR.lastName, CATEGORY.name AS category, BOOK.ISBN, BOOK.date_published, BOOK.edition, BOOK.num_pages, BOOK.publisher, BOOK.summary
     FROM BOOK , WRITES, AUTHOR, CATEGORY, BELONGS_TO
     WHERE BOOK.ISBN = WRITES.ISBN_book AND WRITES.id_author = AUTHOR.id
     AND BOOK.ISBN = BELONGS_TO.ISBN_book AND BELONGS_TO.id_category = CATEGORY.id
     AND ISBN = ?`;
-    const stmt = await sql.prepare(command);
+    const command2 = `SELECT LIBRARY.city, COUNT(*) AS available_copies
+    FROM COPY, LIBRARY
+    WHERE ISBN_book=? AND COPY.id_location=LIBRARY.id
+    GROUP BY id_location;`
+
+    const stmt1 = await sql.prepare(command1);
+    const stmt2 = await sql.prepare(command2);
+
     try {
-        const book = await stmt.all(ISBN);
-        return book[0];
+        const book = await stmt1.all(ISBN);
+        //console.log('Book: ', book);
+        const copies = await stmt2.all(ISBN);
+        //console.log('Copies: ', copies);
+
+        await stmt1.finalize();
+        await stmt2.finalize();
+
+        //if(book.length === 0) {
+        //    console.error('Book not found');
+        //}
+        //if(copies.length === 0) {
+        //    console.error('No copies found');
+        //}
+        return { book: book[0], copies: copies };
     } catch (err) {
+        await stmt1.finalize();
+        await stmt2.finalize();
+        //console.error('Error in showBook: ', err);
         throw err;
     }
-}
+};
