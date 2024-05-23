@@ -13,7 +13,7 @@ router.get('/', (req, res)=>{
 //search results and single book show page
 router.get('/book', libraryController.listShowBook);
 router.get('/searchresult', libraryController.listFindBooks);
-router.get('/book/:ISBN', libraryController.listShowBook);
+router.get('/book/:ISBN', loginController.checkAuthenticated, libraryController.listShowBook);
 
 
 //info page
@@ -29,11 +29,11 @@ router.get('/location', libraryController.showLocations);
 router.route('/login').get(loginController.showLogInForm);
 router.route('/login').post(loginController.doLogin);
 
-
-
-
 //signup 
 router.route('/signup').get(loginController.showSignUpForm);
 router.route('/signup').post(loginController.doSignUp);
+
+//logout
+router.get('/logout', loginController.doLogout);
 
 export default router;

@@ -17,7 +17,7 @@ catch (error){
 
 //Επιστρέφει τον χρήστη με email
 export let getUserByEmail = async (email) => {
-    const stmt = await sql.prepare("SELECT id, email, hashpass FROM USER WHERE email = ? LIMIT 0, 1");
+    const stmt = await sql.prepare("SELECT id, email, hashpass FROM USER WHERE email = ?");
     try {
         const user = await stmt.all(email);
         return user[0];

@@ -1,1 +1,1 @@
-npm install sqlite-async
+npm install sqlite-async, bcrypt express-session

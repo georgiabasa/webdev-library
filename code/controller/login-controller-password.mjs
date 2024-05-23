@@ -12,6 +12,7 @@ export let showSignUpForm = function (req, res) {
 }
 
 export let doLogin = async function (req, res) {
+    console.log("pame ligo")
     const user = await userModel.getUserByEmail(req.body.email);
     console.log(user);
     if (user == undefined || !user.hashpass || !user.id) {
@@ -23,10 +24,11 @@ export let doLogin = async function (req, res) {
         if (match) {
             //Θέτουμε τη μεταβλητή συνεδρίας "loggedUserId"
             req.session.loggedUserId = user.id;
-            console.log("user is authenticated", req.session.loggedUserId);
+            console.log("user is authenticated", user.id);
             //Αν έχει τιμή η μεταβλητή req.session.originalUrl, αλλιώς όρισέ τη σε "/" 
             // res.redirect("/");            
-            const redirectTo = req.session.originalUrl || "/book";
+            //req.session.originalUrl ||
+            const redirectTo =  "/";
 
             res.redirect(redirectTo);
         }

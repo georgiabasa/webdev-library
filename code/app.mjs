@@ -15,12 +15,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.use('/images', express.static('images'));
 
+import librarySession from './app-setup/app-setup-session.mjs';
+app.use(librarySession);
 app.use((req, res, next) => {
     if(req.session){
-        res.locals.session = req.session.loggedUserId;
+        res.locals.userId = req.session.loggedUserId; 
     }
     else{
-        res.locals.loggedUserId = 'επισκέπτης'; 
+       res.locals.userId = 'επισκέπτης'; 
         //αλλιώς res.locals.userId = 'επισκέπτης';
     }
     next();
