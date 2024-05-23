@@ -9,10 +9,10 @@
 </head>
 <body>
     <div class="bookresult">
-        <div class="trancaction">
+        <div class="transaction">
             <img src="/images/{{book.image_id}}.jpg" alt="Test Image" style="width: 200px; height: 300px;">
-            <button id="borrow" onclick="window.location.href='/borrow/{{book.id}}'">ΤΟ ΘΕΛΩ</button>
-            <button id="ask" onclick="window.location.href='/ask/{{book.id}}'">ΖΗΤΗΣΕ ΤΟ</button>
+            <button id="borrow" onclick="window.location.href='/borrow/{{book.ISBN}}'">ΤΟ ΘΕΛΩ</button>
+            <button id="ask" onclick="window.location.href='/ask/{{book.ISBN}}'">ΖΗΤΗΣΕ ΤΟ</button>
         </div>
         <div class="title-info">
             <h2 id="booktitle">{{book.title}}</h2>
