@@ -9,7 +9,11 @@
 </head>
 <body>
     <div class="bookresult">
-        <img src="/images/{{book.image_id}}.jpg" alt="Test Image" style="width: 200px; height: 300px;">
+        <div class="trancaction">
+            <img src="/images/{{book.image_id}}.jpg" alt="Test Image" style="width: 200px; height: 300px;">
+            <button id="borrow" onclick="window.location.href='/borrow/{{book.id}}'">ΤΟ ΘΕΛΩ</button>
+            <button id="ask" onclick="window.location.href='/ask/{{book.id}}'">ΖΗΤΗΣΕ ΤΟ</button>
+        </div>
         <div class="title-info">
             <h2 id="booktitle">{{book.title}}</h2>
             <p id="author"><strong>Author:</strong> {{book.firstName}} {{book.lastName}}</p>
@@ -20,6 +24,12 @@
             <p id="ed"><strong>Edition:</strong> {{book.edition}}</p>
             <p id="nump"><strong>Pages:</strong> {{book.num_pages}}</p>
             <p id="summ"><strong>Summary:</strong> {{book.summary}}</p>
+            <h3><br>Availability</h3>
+            <ul>
+                {{#each copies}}
+                    <li>{{this.city}}, Available Copies: {{this.available_copies}}</li>
+                {{/each}}
+            </ul>
         </div>
     </div>
 </body>
