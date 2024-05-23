@@ -13,7 +13,7 @@ router.get('/', (req, res)=>{
 //search results and single book show page
 router.get('/book', libraryController.listShowBook);
 router.get('/searchresult', libraryController.listFindBooks);
-router.get('/book/:ISBN', libraryController.listShowBook);
+router.get('/book/:ISBN', loginController.checkAuthenticated, libraryController.listShowBook);
 
 
 //info page

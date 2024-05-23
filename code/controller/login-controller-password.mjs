@@ -26,7 +26,7 @@ export let doLogin = async function (req, res) {
             console.log("user is authenticated", req.session.loggedUserId);
             //Αν έχει τιμή η μεταβλητή req.session.originalUrl, αλλιώς όρισέ τη σε "/" 
             // res.redirect("/");            
-            const redirectTo = req.session.originalUrl || "/";
+            const redirectTo = req.session.originalUrl || "/book";
 
             res.redirect(redirectTo);
         }
