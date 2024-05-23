@@ -31,6 +31,55 @@ export async function listFindBooks(req, res, next) {
     }
 }
 
+export async function listShowCitiesAvailable(req, res, next) {
+    const { ISBN } = req.params;
+
+    try {
+        const aCities = await model.showCitiesAvailable(ISBN);
+        res.render('borrow', { ISBN: ISBN, aCities: aCities, model: process.env.MODEL, session: req.session });
+    } catch (err) {
+        throw err;
+    }
+}
+
+export async function handleBorrowRequest(req, res, next) {
+    const { ISBN } = req.params;
+    const { city } = req.body;
+    const userId = req.session.loggedUserId;
+
+    try {
+        await model.borrowBook(userId, ISBN, city);
+        res.render('borrowConfirmation', {ISBN: ISBN, city: city , model: process.env.MODEL, session: req.session});
+    } catch (err) {
+        throw err;
+    }
+};
+
+export async function listCitiesNotAvailable(req, res, next) {
+    const { ISBN } = req.params;
+
+    try {
+        const naCities = await model.showCitiesNotAvailable();
+        console.log(naCities);
+        res.render('ask', { ISBN: ISBN, naCities: naCities, model: process.env.MODEL, session: req.session });
+    } catch (err) {
+        throw err;
+    }
+};
+
+export async function handleAskRequest(req, res, next) {
+    const { ISBN } = req.params;
+    const { city } = req.body;
+    const userId = req.session.loggedUserId;
+
+    try {
+        await model.askBook(userId, ISBN, city);
+        res.render('askConfirmation', {ISBN: ISBN, city: city , model: process.env.MODEL, session: req.session});
+    } catch (err) {
+        throw err;
+    }
+};
+
 export async function showInfo(req, res) {
     res.render('about', { model: process.env.MODEL, session: req.session });
 }
@@ -41,4 +90,4 @@ export async function showContact(req, res) {
 
 export async function showLocations(req, res) {
     res.render('location', { model: process.env.MODEL, session: req.session });
-}
+};

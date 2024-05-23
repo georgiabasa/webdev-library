@@ -230,3 +230,25 @@ a {
 
 
 
+label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0.7rem;
+}
+
+input[type="text"] {
+  padding: 0%;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0.7rem;
+  font-family: 'Josefin Sans',
+    sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}

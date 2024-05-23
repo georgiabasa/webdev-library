@@ -121,3 +121,75 @@ export let showBook = async (ISBN) => {
         throw err;
     }
 };
+
+export let showCitiesAvailable = async (ISBN) => {
+    // ανάκτηση των πόλεων που υπάρχουν αντίτυπα του βιβλίου
+    const command = `SELECT DISTINCT LIBRARY.city
+    FROM LIBRARY, COPY
+    WHERE COPY.id_location = LIBRARY.id
+    AND COPY.ISBN_book = ?
+    ORDER by LIBRARY.city`
+
+    const stmt = await sql.prepare(command);
+    try {
+        const availableCities = await stmt.all(ISBN);
+        await stmt.finalize();
+        return availableCities;
+    } catch (err) {
+        throw err;
+    }
+}
+
+async function getLocationId(city) {
+    // ανάκτηση του id της πόλης
+    const command = `SELECT id FROM LIBRARY WHERE city = ?`;
+    const stmt = await sql.prepare(command);
+    const row = await stmt.get(city);
+    await stmt.finalize();
+    return row ? row.id : null;
+}
+
+export let borrowBook = async (userId, ISBN, city) => {
+    // προσθήκη ενός νέου δανεισμού
+    const locationId = await getLocationId(city);
+    const date = new Date().toISOString().split('T')[0]; // ημερομηνία του δανεισμού σε μορφή 'YYYY-MM-DD'
+    const command = `INSERT INTO APPLIES_FOR (id_user, ISBN_book, date, id_location) VALUES (?, ?, ?, ?)`
+    const stmt = await sql.prepare(command);
+    try {
+        await stmt.run(userId, ISBN, date, locationId);
+        await stmt.finalize();
+    } catch (err) {
+        throw err;
+    }
+};
+
+export let showCitiesNotAvailable = async () => {
+    // ανάκτηση των πόλεων
+    const command = `SELECT DISTINCT LIBRARY.city
+    FROM LIBRARY
+    LEFT JOIN COPY ON COPY.id_location = LIBRARY.id AND COPY.ISBN_book = ?
+    WHERE COPY.ISBN_book IS NULL
+    ORDER BY LIBRARY.city;`;
+    const stmt = await sql.prepare(command);
+    try {
+        const notAvailableCities = await stmt.all();
+        await stmt.finalize();
+        return notAvailableCities;
+    } catch (err) {
+        throw err;
+    }
+};
+
+export let askBook = async (userId, ISBN, city) => {
+    // προσθήκη ενός νέου δανεισμού
+    const locationId = await getLocationId(city);
+    const date = new Date().toISOString().split('T')[0]; // ημερομηνία του δανεισμού σε μορφή 'YYYY-MM-DD'
+    const command = `INSERT INTO APPLIES_FOR (id_user, ISBN_book, date, id_location) VALUES (?, ?, ?, ?)`
+    const stmt = await sql.prepare(command);
+    try {
+        await stmt.run(userId, ISBN, date, locationId);
+        await stmt.finalize();
+    } catch (err) {
+        throw err;
+    }
+};

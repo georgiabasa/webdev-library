@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrow Book</title>
+    <link rel="stylesheet" href="/css/login_style.css" />
+</head>
+<body>
+    <h1>Borrow Book</h1>
+    <form action="/ask/{{ISBN}}" method="post">
+        <label for="isbn">ISBN_book:</label>
+        <input type="text" id="isbn" name="isbn" value="{{ISBN}}" required readonly>
+        <br>
+        <label for="city">Choose a city:</label>
+        <select id="city" name="city">
+            {{#each naCities}}
+                <option value="{{this.city}}">{{this.city}}</option>
+            {{/each}}
+        </select>
+        <br>
+        <button type="submit">Apply</button>
+    </form>
+</body>

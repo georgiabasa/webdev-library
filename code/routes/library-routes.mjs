@@ -15,6 +15,13 @@ router.get('/book', libraryController.listShowBook);
 router.get('/searchresult', libraryController.listFindBooks);
 router.get('/book/:ISBN', loginController.checkAuthenticated, libraryController.listShowBook);
 
+//borrowing
+router.route('/borrow/:ISBN').get(loginController.checkAuthenticated, libraryController.listShowCitiesAvailable);
+router.route('/borrow/:ISBN').post(loginController.checkAuthenticated, libraryController.handleBorrowRequest);
+
+//asking
+router.route('/ask/:ISBN').get(loginController.checkAuthenticated, libraryController.listCitiesNotAvailable);
+router.route('/ask/:ISBN').post(loginController.checkAuthenticated, libraryController.handleAskRequest);
 
 //info page
 router.get('/about', libraryController.showInfo);
