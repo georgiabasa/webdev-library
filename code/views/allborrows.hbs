@@ -10,10 +10,12 @@
     <ul class="borrow-list">
         {{#each allborrows}}
             <li class="borrow-item">
-                <span>ID User: {{id_user}}</span>
-                <span>ID Copy: {{id_copy}}</span>
-                <span>Date Borrowing: {{date_borrowing}}</span>
-                <span>Date Must Return: {{date_must_return}}</span>
+                <a href="/borrow/{{id_user}}/{{id_copy}}/{{date_borrowing}}/{{id_location}}">
+                    <span>ID User: {{id_user}}</span>
+                    <span>ID Copy: {{id_copy}}</span>
+                    <span>Date Borrowing: {{date_borrowing}}</span>
+                    <span>Date Must Return: {{date_must_return}}</span>
+                </a>
             </li>
         {{/each}}
     </ul>

@@ -236,12 +236,12 @@ export let getAllApplications = async (id_location) => {
     }
 }
 
-export let getAllBorrows = async () => {
+export let getAllBorrows = async (id_location) => {
     // ανάκτηση των δανεισμών
-    const command = `SELECT * FROM BORROWS`;
+    const command = `SELECT * FROM BORROWS WHERE id_location = ?`;
     const stmt = await sql.prepare(command);
     try {
-        const borrows = await stmt.all();
+        const borrows = await stmt.all(id_location);
         await stmt.finalize();
         return borrows;
     } catch (err) {
@@ -292,3 +292,36 @@ export let acceptApplicationConfirm = async (id_user, ISBN_book, id_location) =>
         }
     }
 };
+
+export let checkBlacklist = async (id_user, id_copy, date_borrowing) => {
+    // έλεγχος αν ο χρήστης είναι στη μαύρη λίστα
+    const command = `SELECT date_must_return FROM BORROWS WHERE id_user = ? AND id_copy = ? AND date_borrowing = ?`;
+    const stmt = await sql.prepare(command);
+    try {
+        const row = await stmt.get(id_user, id_copy, date_borrowing);
+        await stmt.finalize();
+        const today = new Date().toISOString().split('T')[0]; // current date in 'YYYY-MM-DD' format
+        const dateMustReturn = row.date_must_return;
+        const bl = dateMustReturn < today ? false : true;
+        return bl;
+    } catch (err) {
+        throw err;
+    }
+
+}
+
+export let acceptReturnConfirm = async (id_user, id_copy, date_borrowing, id_location) => {
+    // αποδοχή της επιστροφής
+    const blacklist = false;
+    const command = `INSERT INTO RETURNS (id_user, id_copy, date_borrowing, date_returning, id_location) VALUES (?, ?, ?, ?, ?)`;
+    const stmt = await sql.prepare(command);
+    try {
+        const blacklisted = await checkBlacklist(id_user, id_copy, date_borrowing);
+        const today = new Date().toISOString().split('T')[0]; // ημερομηνία της επιστροφής σε μορφή 'YYYY-MM-DD'
+        await stmt.run(id_user, id_copy, date_borrowing, today,  id_location);
+        await stmt.finalize();
+        return blacklisted;
+    } catch (err) {
+        throw err;
+    }
+}

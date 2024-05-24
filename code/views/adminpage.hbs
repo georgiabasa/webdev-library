@@ -14,7 +14,7 @@
             <ul>
                 <li><a href="/allusers">View All Users</a></li>
                 <li><a href="#" onclick="viewAllApplications()">View All Applications</a></li>
-                <li><a href="/allborrows">View Ongoing Borrows</a></li>
+                <li><a href="#" onclick="viewALLOngoingBorrows()">View Ongoing Borrows</a></li>
             </ul>
             <div>
                 <label for="locationSelect">Choose a location:</label>
@@ -33,6 +33,12 @@
             let locationSelect = document.getElementById("locationSelect");
             let locationId = locationSelect.value;
             window.location.href = "/allapplications/" + locationId;
+        }
+
+        function viewALLOngoingBorrows() {
+            let locationSelect = document.getElementById("locationSelect");
+            let locationId = locationSelect.value;
+            window.location.href = "/allongoingborrows/" + locationId;
         }
     </script>
 </body>

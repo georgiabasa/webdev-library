@@ -42,7 +42,7 @@ span {
     background-color: #f1f1f1;
 }
 
-.application-list li a {
+.application-list li a, .borrow-list li a{
     display: block;
     padding:10px;
     text-decoration: none;
