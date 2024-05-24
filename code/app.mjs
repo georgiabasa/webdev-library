@@ -28,6 +28,10 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/adminpage', (req, res) => {
+    res.render('adminpage', {});
+});
+
 import routes from './routes/library-routes.mjs';
 app.use('/', routes);   
 

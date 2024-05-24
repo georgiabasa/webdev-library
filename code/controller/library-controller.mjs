@@ -85,9 +85,21 @@ export async function showInfo(req, res) {
 }
 
 export async function showContact(req, res) {
-    res.render('contact', { model: process.env.MODEL, session: req.session });
-}
+    try {
+        const contactInfo = await model.showLibraryInfo();
+        res.render('contact', { contactInfo: contactInfo, model: process.env.MODEL, session: req.session });
+    }
+    catch (err) {
+        throw err;
+    }
+};
 
-export async function showLocations(req, res) {
-    res.render('location', { model: process.env.MODEL, session: req.session });
+export async function showLocations(req, res){
+    try {
+        const locationInfo = await model.showLibraryInfo();
+        res.render('location', { locationInfo: locationInfo, model: process.env.MODEL, session: req.session });
+    }
+    catch (err) {
+        throw err;
+    }
 };

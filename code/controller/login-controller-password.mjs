@@ -12,31 +12,39 @@ export let showSignUpForm = function (req, res) {
 }
 
 export let doLogin = async function (req, res) {
-    console.log("pame ligo")
-    const user = await userModel.getUserByEmail(req.body.email);
-    console.log(user);
-    if (user == undefined || !user.hashpass || !user.id) {
-        res.render('login', { message: 'Δε βρέθηκε αυτός ο χρήστης' });
-    }
-    else {
-        const match = await bcrypt.compare(req.body.password, user.hashpass);
-        console.log(match)
-        if (match) {
-            //Θέτουμε τη μεταβλητή συνεδρίας "loggedUserId"
-            req.session.loggedUserId = user.id;
-            console.log("user is authenticated", user.id);
-            //Αν έχει τιμή η μεταβλητή req.session.originalUrl, αλλιώς όρισέ τη σε "/" 
-            // res.redirect("/");            
-            //req.session.originalUrl ||
-            const redirectTo =  "/";
+    console.log("kapoios kanei login");
 
-            res.redirect(redirectTo);
+    try{
+        const user = await userModel.getUserByEmail(req.body.email);
+        console.log(user);
+
+        if(!user || !user.hashpass || !user.id){
+            return res.render('login', { message: 'Δεν βρέθηκε αυτός ο χρήστης.'});
+        }
+
+        const isAdmin = user.email === "admin@admin.gr";
+        const match = await bcrypt.compare(req.body.password, user.hashpass);
+
+        if(match) {
+            req.session.loggedUserId = user.id;
+            if(isAdmin) {
+                console.log('user is authenticated: ADMIN', user.id);
+            }
+            else {
+                console.log('user is authenticated: regular user', user.id);
+            }
+            const redirectTo = isAdmin ? "adminpage" : "/";
+            return res.redirect(redirectTo);
         }
         else {
-            res.render("login", { message: 'Ο κωδικός πρόσβασης είναι λάθος' })
+            return res.render('login', { message: 'Λάθος κωδικός.' });
         }
     }
-}
+    catch(error) {
+        console.error("Error during login process:", error);
+        res.render('login', { message: 'Παρουσιάστηκε error κατά την είσοδο.' });
+    }
+};
 
 export let doSignUp = async function (req, res) {
     try {

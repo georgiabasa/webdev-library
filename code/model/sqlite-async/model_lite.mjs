@@ -193,3 +193,16 @@ export let askBook = async (userId, ISBN, city) => {
         throw err;
     }
 };
+
+export let showLibraryInfo = async () => {
+    // ανάκτηση των πληροφοριών για τις βιβλιοθήκες
+    const command = `SELECT * FROM LIBRARY`;
+    const stmt = await sql.prepare(command);
+    try {
+        const libraries = await stmt.all();
+        await stmt.finalize();
+        return libraries;
+    } catch (err) {
+        throw err;
+    }
+}

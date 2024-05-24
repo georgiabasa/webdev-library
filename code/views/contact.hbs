@@ -1,8 +1,25 @@
-<section id="communication">
-    <h2>Επικοινωνία</h2>
-    <p>Για περαιτέρω πληροφορίες ή για να επικοινωνήσετε μαζί μας, μπορείτε να μας βρείτε στα παρακάτω στοιχεία επικοινωνίας:</p>
-    <ul>
-        <li>Τηλέφωνο: +30 210 1234567</li>
+<head>
+    <style>
+        a {
+            font-weight: bold; /* Make the text bold */
+            color: whitesmoke; /* Set the text color to black */
+            text-decoration: none; /* Remove underline */
+        }
+        /* CSS for hover effect (optional) */
+        a:hover {
+            text-decoration: underline; /* Add underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <section id="communication">
+        <h2>Επικοινωνία</h2>
+        <p>Για περαιτέρω πληροφορίες ή για να επικοινωνήσετε μαζί μας, μπορείτε να μας βρείτε στα παρακάτω στοιχεία επικοινωνίας:</p>
+        <ul>
+            {{#each contactInfo}}
+                <li><strong>{{this.city}}:</strong> {{this.phone}}</li>
+            {{/each}}
+        </ul>
         <li>Email: <a href="mailto:info@diktyovivliothikon.gr">info@diktyovivliothikon.gr</a></li>
-    </ul>
-</section>
+    </section>
+</body>
