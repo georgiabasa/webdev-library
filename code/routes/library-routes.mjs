@@ -2,6 +2,7 @@ import express from 'express';
 
 import * as loginController from '../controller/login-controller-password.mjs';
 import * as libraryController from '../controller/library-controller.mjs';
+import * as adminController from '../controller/admin-controller.mjs';
 
 const router = express.Router();
 
@@ -42,5 +43,11 @@ router.route('/signup').post(loginController.doSignUp);
 
 //logout
 router.get('/logout', loginController.doLogout);
+
+//adminpage
+router.get('/allusers', loginController.checkAuthenticated, adminController.viewAllUsers);
+router.get('/allapplications', loginController.checkAuthenticated, adminController.viewAllApplications);
+router.get('/allborrows', loginController.checkAuthenticated, adminController.viewAllBorrows);
+
 
 export default router;

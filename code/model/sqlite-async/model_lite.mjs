@@ -205,4 +205,43 @@ export let showLibraryInfo = async () => {
     } catch (err) {
         throw err;
     }
+};
+
+export let getAllUsers = async () => {
+    // ανάκτηση των χρηστών
+    const command = `SELECT * FROM USER`;
+    const stmt = await sql.prepare(command);
+    try {
+        const users = await stmt.all();
+        await stmt.finalize();
+        return users;
+    } catch (err) {
+        throw err;
+    }
+};
+
+export let getAllApplications = async () => {
+    // ανάκτηση των αιτήσεων
+    const command = `SELECT * FROM APPLIES_FOR`;
+    const stmt = await sql.prepare(command);
+    try {
+        const applications = await stmt.all();
+        await stmt.finalize();
+        return applications;
+    } catch (err) {
+        throw err;
+    }
+}
+
+export let getAllBorrows = async () => {
+    // ανάκτηση των δανεισμών
+    const command = `SELECT * FROM BORROWS`;
+    const stmt = await sql.prepare(command);
+    try {
+        const borrows = await stmt.all();
+        await stmt.finalize();
+        return borrows;
+    } catch (err) {
+        throw err;
+    }
 }

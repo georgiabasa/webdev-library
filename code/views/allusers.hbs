@@ -1,0 +1,12 @@
+<ul>
+    {{#each allusers}}
+        <li>
+            <span>ID: {{this.id}}</span>
+            <span>Email: {{this.email}}</span>
+            <span>First Name: {{this.first_name}}</span>
+            <span>Last Name: {{this.last_name}}</span>
+            <span>Phone: {{this.phoneNumber}}</span>
+            <span>Blacklisted: {{this.blacklisted}}</span>
+        </li>
+    {{/each}}
+</ul>
