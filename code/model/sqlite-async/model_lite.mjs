@@ -220,15 +220,18 @@ export let getAllUsers = async () => {
     }
 };
 
-export let getAllApplications = async () => {
+export let getAllApplications = async (id_location) => {
     // ανάκτηση των αιτήσεων
-    const command = `SELECT * FROM APPLIES_FOR`;
+    const command = `SELECT * 
+    FROM APPLIES_FOR
+    WHERE id_location = ?`;
     const stmt = await sql.prepare(command);
     try {
-        const applications = await stmt.all();
+        const applications = await stmt.all(id_location);
         await stmt.finalize();
         return applications;
     } catch (err) {
+        console.error('Error retrieving applications:', err);
         throw err;
     }
 }
@@ -245,3 +248,47 @@ export let getAllBorrows = async () => {
         throw err;
     }
 }
+
+export let findCopyForISBN = async (ISBN, id_location) => {
+    // ανάκτηση των αντιτύπων
+    const command = `SELECT id FROM COPY WHERE ISBN_book = ? AND id_location = ? LIMIT 0, 1`;
+    const stmt = await sql.prepare(command);
+    try {
+        const copy = await stmt.all(ISBN, id_location);
+        await stmt.finalize();
+        return copy;
+    } catch (err) {
+        throw err;
+    }
+}
+
+export let acceptApplicationConfirm = async (id_user, ISBN_book, id_location) => {
+    // αποδοχή της αίτησης
+    const id_copy = await findCopyForISBN(ISBN_book, id_location);
+    console.log('id_copy:', id_copy)
+    if (!id_copy || id_copy.length === 0) {
+        const confirmation = false;
+        console.error('No copy found');
+        return confirmation;
+    }
+    else {
+        const confirmation = true;
+        const command1 = `INSERT INTO BORROWS (id_user, id_copy, date_borrowing, date_must_return, id_location) VALUES (?, ?, ?, ?, ?)`;
+        const command2 = `DELETE FROM APPLIES_FOR WHERE id_user = ? AND ISBN_book = ? AND id_location = ?`;
+        const stmt1 = await sql.prepare(command1);
+        const stmt2 = await sql.prepare(command2);
+        try {
+            const today = new Date()
+            const formattedToday = today.toISOString().split('T')[0]; // ημερομηνία του δανεισμού σε μορφή 'YYYY-MM-DD'
+            const returnDate = new Date(today.getTime() + 14 * 24 * 60 * 60 * 1000); // ημερομηνία επιστροφής μετά από 14 μέρες
+            const formattedReturnDate = returnDate.toISOString().split('T')[0]; // ημερομηνία επιστροφής σε μορφή 'YYYY-MM-DD'
+            await stmt1.run(id_user, id_copy[0].id, formattedToday, formattedReturnDate, id_location);
+            await stmt2.run(id_user, ISBN_book, id_location);
+            await stmt1.finalize();
+            await stmt2.finalize();
+            return confirmation;
+        } catch (err) {
+            throw err;
+        }
+    }
+};

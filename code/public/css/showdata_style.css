@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body styling */
+body {
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* General styles for unordered lists */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+/* General styles for span elements */
+span {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Specific styles for different lists */
+.user-list li, .borrow-list li, .application-list li {
+    background-color: #aeaba8;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.user-list li:hover, .borrow-list li:hover, .application-list li:hover{
+    background-color: #f1f1f1;
+}
+
+.application-list li a {
+    display: block;
+    padding:10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    li {
+        padding: 8px;
+    }
+
+    span {
+        font-size: 14px;
+    }
+}

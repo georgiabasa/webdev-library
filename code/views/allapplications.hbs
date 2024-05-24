@@ -1,8 +1,22 @@
-{{#each allapplications}}
-    <li>
-        <span>ID User: {{id_user}}</span>
-        <span>ISBN Book: {{ISBN_book}}</span>
-        <span>Date: {{date}}</span>
-        <span>ID City: {{id_location}}</span>
-    </li>
-{{/each}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="/css/showdata_style.css">
+</head>
+<body>
+    <ul class="application-list">
+        {{#each allapplications}}
+            <li class="application-item">
+                <a href="/application/{{id_user}}/{{ISBN_book}}/{{id_location}}">
+                    <span>ID User: {{id_user}}</span>
+                    <span>ISBN Book: {{ISBN_book}}</span>
+                    <span>Date: {{date}}</span>
+                    <span>ID City: {{id_location}}</span>
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+</body>

@@ -46,8 +46,10 @@ router.get('/logout', loginController.doLogout);
 
 //adminpage
 router.get('/allusers', loginController.checkAuthenticated, adminController.viewAllUsers);
-router.get('/allapplications', loginController.checkAuthenticated, adminController.viewAllApplications);
+router.get('/allapplications/:locationSelect', loginController.checkAuthenticated, adminController.viewAllApplications);
 router.get('/allborrows', loginController.checkAuthenticated, adminController.viewAllBorrows);
 
+//adminpage - accept or reject applications
+router.route('/application/:id_user/:ISBN_book/:id_location').get(loginController.checkAuthenticated, adminController.acceptApplication);
 
 export default router;

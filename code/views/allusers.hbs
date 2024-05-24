@@ -1,12 +1,23 @@
-<ul>
-    {{#each allusers}}
-        <li>
-            <span>ID: {{this.id}}</span>
-            <span>Email: {{this.email}}</span>
-            <span>First Name: {{this.first_name}}</span>
-            <span>Last Name: {{this.last_name}}</span>
-            <span>Phone: {{this.phoneNumber}}</span>
-            <span>Blacklisted: {{this.blacklisted}}</span>
-        </li>
-    {{/each}}
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="/css/showdata_style.css">
+</head>
+<body>
+    <ul class="user-list">
+        {{#each allusers}}
+            <li class="user-item">
+                <span>ID: {{this.id}}</span>
+                <span>Email: {{this.email}}</span>
+                <span>First Name: {{this.first_name}}</span>
+                <span>Last Name: {{this.last_name}}</span>
+                <span>Phone: {{this.phoneNumber}}</span>
+                <span>Blacklisted: {{this.blacklisted}}</span>
+            </li>
+        {{/each}}
+    </ul>
+</body>
+</html>

@@ -1,8 +1,20 @@
-{{#each allborrows}}
-    <li>
-        <span>ID User: {{id_user}}</span>
-        <span>ID Copy: {{id_copy}}</span>
-        <span>Date Borrowing: {{date_borrowing}}</span>
-        <span>Date Must Return: {{date_must_return}}</span>
-    </li>
-{{/each}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="/css/showdata_style.css">
+</head>
+<body>
+    <ul class="borrow-list">
+        {{#each allborrows}}
+            <li class="borrow-item">
+                <span>ID User: {{id_user}}</span>
+                <span>ID Copy: {{id_copy}}</span>
+                <span>Date Borrowing: {{date_borrowing}}</span>
+                <span>Date Must Return: {{date_must_return}}</span>
+            </li>
+        {{/each}}
+    </ul>
+</body>

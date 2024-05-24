@@ -1,20 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
-    <style>
-        /* Add your custom styling here */
-    </style>
+    <link rel="stylesheet" href="/css/admin_style.css">
 </head>
 <body>
-    <h1>Welcome to the Admin Page</h1>
-    <div>
-        <h2>Options:</h2>
-        <ul>
-            <li><a href="/allusers">View All Users</a></li>
-            <li><a href="/allapplications">View All Applications</a></li>
-            <li><a href="/allborrows">View Ongoing Borrows</a></li>
-        </ul>
+    <div class="admin_div">
+        <h1>Welcome to the Admin Page</h1>
+        <div>
+            <h2>Options:</h2>
+            <ul>
+                <li><a href="/allusers">View All Users</a></li>
+                <li><a href="#" onclick="viewAllApplications()">View All Applications</a></li>
+                <li><a href="/allborrows">View Ongoing Borrows</a></li>
+            </ul>
+            <div>
+                <label for="locationSelect">Choose a location:</label>
+                <select id="locationSelect" name="locationSelect">
+                    <option value="1">Athens</option>
+                    <option value="2">Thessaloniki</option>
+                    <option value="3">Patras</option>
+                    <option value="4">Larissa</option>
+                </select>
+            </div>
+        </div>
     </div>
+
+    <script>
+        function viewAllApplications() {
+            let locationSelect = document.getElementById("locationSelect");
+            let locationId = locationSelect.value;
+            window.location.href = "/allapplications/" + locationId;
+        }
+    </script>
 </body>
 </html>
