@@ -49,7 +49,7 @@ export let doLogin = async function (req, res) {
 export let doSignUp = async function (req, res) {
     try {
         const registrationResult = await userModel.insertUser(req.body.email, req.body.password, req.body.firstName, req.body.lastName, req.body.phone);
-        res.redirect('/login');
+        res.redirect('login');
 
     } catch (error) {
         console.error('registration ' + error);
