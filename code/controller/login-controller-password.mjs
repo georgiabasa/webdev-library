@@ -12,11 +12,11 @@ export let showSignUpForm = function (req, res) {
 }
 
 export let doLogin = async function (req, res) {
-    console.log("kapoios kanei login");
+    //console.log("kapoios kanei login");
 
     try{
         const user = await userModel.getUserByEmail(req.body.email);
-        console.log(user);
+        //console.log(user);
 
         if(!user || !user.hashpass || !user.id){
             return res.render('login', { message: 'Δεν βρέθηκε αυτός ο χρήστης.'});

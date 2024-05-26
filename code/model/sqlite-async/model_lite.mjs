@@ -265,7 +265,7 @@ export let findCopyForISBN = async (ISBN, id_location) => {
 export let acceptApplicationConfirm = async (id_user, ISBN_book, id_location) => {
     // αποδοχή της αίτησης
     const id_copy = await findCopyForISBN(ISBN_book, id_location);
-    console.log('id_copy:', id_copy)
+    //console.log('id_copy:', id_copy)
     if (!id_copy || id_copy.length === 0) {
         const confirmation = false;
         console.error('No copy found');

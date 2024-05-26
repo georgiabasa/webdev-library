@@ -6,7 +6,7 @@ export async function listShowBook(req, res, next) {
 
     try {
         const bookres = await model.showBook(ISBN);
-        console.log(bookres.image_id);  
+        //console.log(bookres.image_id);  
 
         res.render('book', {
             book: bookres.book,
@@ -21,7 +21,7 @@ export async function listShowBook(req, res, next) {
 
 export async function listFindBooks(req, res, next) {
     const searchInput =  req.query.searchInput;
-    console.log(searchInput);
+    //console.log(searchInput);
 
     try {
         const allbooks = await model.findBooks(searchInput);
@@ -60,7 +60,7 @@ export async function listCitiesNotAvailable(req, res, next) {
 
     try {
         const naCities = await model.showCitiesNotAvailable();
-        console.log(naCities);
+        //console.log(naCities);
         res.render('ask', { ISBN: ISBN, naCities: naCities, model: process.env.MODEL, session: req.session });
     } catch (err) {
         throw err;
