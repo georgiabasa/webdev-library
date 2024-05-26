@@ -1,5 +1,27 @@
-{{#if confirmation}}
-    <p>Επιτυχής καταχώριση δανεισμού</p>
-{{else}}
-    <p>Λυπούμαστε, δεν υπάρχει διαθέσιμο στη βιβλιοθήκη</p>
-{{/if}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrow Confirmation</title>
+    <link rel="stylesheet" href="/css/login_style.css" />
+    <style>
+     a {
+            font-weight: bold; /* Make the text bold */
+            color: whitesmoke; /* Set the text color to black */
+            text-decoration: none; /* Remove underline */
+        }
+        /* CSS for hover effect (optional) */
+        a:hover {
+            text-decoration: underline; /* Add underline on hover */
+        }
+    </style>
+</head>
+<body>
+    {{#if confirmation}}
+        <p>Επιτυχής καταχώριση δανεισμού</p>
+    {{else}}
+        <p>Λυπούμαστε, δεν υπάρχει διαθέσιμο στη βιβλιοθήκη</p>
+    {{/if}}
+    <a href="/adminpage">Go back to admin page</a>
+</body>
